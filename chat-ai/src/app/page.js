@@ -31,7 +31,7 @@ export default function Home() {
             </h4>
             <a
               className="btn btn-primary text-primary-content text-center relative w-full rounded-full"
-              href="/signup"
+              href="/join"
             >
               Chat Now
             </a>
