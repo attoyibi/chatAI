@@ -50,7 +50,7 @@ export default function Page() {
         <div className="px-6 animate-[from-r-25_.35s_ease-in-out]">
           <div className="mt-5">
             <p className="font-bold text-neutral text-xl lg:text-center">
-              Selamat datang! Daftarkan Email anda untuk gabung ke Avatara.
+              Selamat datang! Daftarkan Nomor HP anda untuk gabung ke Avatara.
             </p>
             <div className="mt-5">
               {/* <button className="tab tab-bordered tab-active pointer-events-none">
