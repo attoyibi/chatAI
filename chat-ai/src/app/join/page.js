@@ -1,3 +1,4 @@
+import Link from "next/link";
 // `app/dashboard/page.js` is the UI for the `/dashboard` URL
 export default function Page() {
   return (
@@ -7,18 +8,20 @@ export default function Page() {
           <div className="fixed w-full z-10">
             <div className="grid grid-cols-9 gap-3 px-5 py-3 max-w-[500px] bg-white">
               <div className="flex items-center">
-                <button className="btn-ghost p-2 rounded-xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 19 17"
-                    width="24"
-                    height="24"
-                    className="text-black"
-                  >
-                    <path d="M8.295 15.716A1 1 0 0 0 9.7 14.291L4.33 9h13.67a1 1 0 1 0 0-2H4.336L9.7 1.715A1 1 0 0 0 8.295.29L1.371 7.113a1.25 1.25 0 0 0 0 1.78l6.924 6.823Z"></path>
-                  </svg>
-                </button>
+                <Link href="/">
+                  <button className="btn-ghost p-2 rounded-xl">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 19 17"
+                      width="24"
+                      height="24"
+                      className="text-black"
+                    >
+                      <path d="M8.295 15.716A1 1 0 0 0 9.7 14.291L4.33 9h13.67a1 1 0 1 0 0-2H4.336L9.7 1.715A1 1 0 0 0 8.295.29L1.371 7.113a1.25 1.25 0 0 0 0 1.78l6.924 6.823Z"></path>
+                    </svg>
+                  </button>
+                </Link>
               </div>
               <div className="col-start-3 col-end-8 flex items-center justify-center">
                 <p className="text-xl font-semibold">JOIN</p>
@@ -28,18 +31,20 @@ export default function Page() {
           <div className="invisible">
             <div className="grid grid-cols-9 gap-3 px-5 py-3 max-w-[500px] bg-white">
               <div className="flex items-center">
-                <button className="btn-ghost p-2 rounded-xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 19 17"
-                    width="24"
-                    height="24"
-                    className="text-black"
-                  >
-                    <path d="M8.295 15.716A1 1 0 0 0 9.7 14.291L4.33 9h13.67a1 1 0 1 0 0-2H4.336L9.7 1.715A1 1 0 0 0 8.295.29L1.371 7.113a1.25 1.25 0 0 0 0 1.78l6.924 6.823Z"></path>
-                  </svg>
-                </button>
+                <Link href="/">
+                  <button className="btn-ghost p-2 rounded-xl">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 19 17"
+                      width="24"
+                      height="24"
+                      className="text-black"
+                    >
+                      <path d="M8.295 15.716A1 1 0 0 0 9.7 14.291L4.33 9h13.67a1 1 0 1 0 0-2H4.336L9.7 1.715A1 1 0 0 0 8.295.29L1.371 7.113a1.25 1.25 0 0 0 0 1.78l6.924 6.823Z"></path>
+                    </svg>
+                  </button>
+                </Link>
               </div>
               <div className="col-start-3 col-end-8 flex items-center justify-center">
                 <p className="text-xl font-semibold">JOIN</p>
@@ -77,13 +82,15 @@ export default function Page() {
                     </div>
                     <div className="text-[10px] font-medium h-4 text-zinc-400"></div>
                   </div>
-                  <button
-                    role="button"
-                    disabled=""
-                    className="btn btn-primary text-primary-content disabled:cursor-not-allowed disabled:opacity-60 text-center relative w-full rounded-full mt-5"
-                  >
-                    Kirim OTP
-                  </button>
+                  <Link href="/otp">
+                    <button
+                      role="button"
+                      disabled=""
+                      className="btn btn-primary text-primary-content disabled:cursor-not-allowed disabled:opacity-60 text-center relative w-full rounded-full mt-5"
+                    >
+                      Kirim OTP
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
