@@ -28,7 +28,7 @@ app.post("/send-otp", (req, res) => {
   // Kirim respons sesuai dengan format Postman
   res.json({
     message: "OTP sent",
-    data: 558816,
+    data: null,
   });
 });
 
@@ -36,12 +36,12 @@ app.post("/send-otp", (req, res) => {
 app.post("/verify-otp", (req, res) => {
   const phoneNumber = req.body.phone_number;
   const otp = req.body.otp;
-
+  console.log("masuk verify-otp =" + phoneNumber + otp);
   // Di sini Anda dapat melakukan verifikasi OTP sesuai dengan data yang diterima
   // Anda perlu membandingkan OTP yang diterima (otp) dengan OTP yang seharusnya dikirimkan ke nomor telepon yang sesuai (phoneNumber)
 
   // Contoh sederhana verifikasi
-  if (otp === "558816") {
+  if (otp === "111111") {
     // Jika OTP cocok, Anda dapat menghasilkan token akses
     const accessToken =
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwODUyNzM4Mzk4NTEifQ.WvSfNakeyWpcaY5tpW9wgK8ICWLFXkWkr_iq1CEPmmc";
