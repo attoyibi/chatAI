@@ -23,7 +23,7 @@ function Page() {
             </Link>
           </div>
           <div className="col-start-3 col-end-8 flex items-center justify-center">
-            <p className="text-xl font-semibold">Nama</p>
+            <p className="text-xl font-semibold">+62xxxxxxxxxx</p>
           </div>
         </div>
       </div>
@@ -53,6 +53,24 @@ function Page() {
         </div>
         <div className="chat-bubble">I hate you!</div>
         <div className="chat-footer opacity-50">Seen at 12:46</div>
+      </div>
+
+      {/* div bottom */}
+      <div class="fixed w-full bottom-0">
+        <div className="max-w-[500px] bg-white px-6 py-4 animate-[from-b-25_.35s_ease-in-out]">
+          <div className="flex items-center justify-between">
+            <div className="w-full max-w-xs mr-2">
+              <input
+                type="text"
+                placeholder="Write Something"
+                className="input input-bordered w-full"
+              />
+            </div>
+            <a className="btn btn-primary text-primary-content text-center relative rounded-full w-32">
+              Send
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
