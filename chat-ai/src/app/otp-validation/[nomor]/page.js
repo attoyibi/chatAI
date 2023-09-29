@@ -33,7 +33,7 @@ function Page({ params }) {
     if (index < inputRefs.current.length - 1 && value.length === 1) {
       inputRefs.current[index + 1].current.focus();
     }
-    console.log(otp);
+    // console.log(otp);
   };
 
   const handleSubmit = async (e) => {
@@ -47,7 +47,6 @@ function Page({ params }) {
       if (otp.length !== 6) {
         throw new Error("OTP harus terdiri dari 6 digit");
       }
-      console.log("masuk try");
 
       // Kirim OTP untuk verifikasi
       const verificationResponse = await verifyOtp(phoneNumber, otp);
@@ -56,13 +55,13 @@ function Page({ params }) {
 
       const accessToken = verificationResponse.data.access_token;
       if (accessToken) {
-        console.log("terdapat accesstoken = " + accessToken);
+        // console.log("terdapat accesstoken = " + accessToken);
         // Simpan access token sesuai preferensi Anda (contoh dengan local storage)
         localStorage.setItem("accessToken", accessToken);
       }
 
       router.push("/chat");
-      console.log(verificationResponse); // Handle responsenya sesuai kebutuhan
+      // console.log(verificationResponse); // Handle responsenya sesuai kebutuhan
     } catch (error) {
       console.log("masuk error ni, bisa di refresh");
 

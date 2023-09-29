@@ -10,7 +10,7 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
   const [buttonStatus, setbuttonStatus] = useState(true); // State untuk menandai apakah nomor HP valid
 
-  console.log(phoneNumber);
+  // console.log(phoneNumber);
   const validatePhoneNumber = (phoneNumber) => {
     // Menghapus spasi di awal dan akhir nomor telepon
     const trimmedPhoneNumber = phoneNumber.trim();
@@ -29,10 +29,10 @@ export default function Page() {
     }
     try {
       setIsLoading(true); // Aktifkan loading state
-      const response = await sendOtp("+62" + phoneNumber);
+      const response = await sendOtp(phoneNumber);
       console.log(response); // Handle responsenya sesuai kebutuhan
       setIsLoading(false); // Matikan loading state
-      router.push("/otp-validation/" + "+62" + phoneNumber);
+      router.push("/otp-validation/" + phoneNumber);
     } catch (error) {
       console.error(error); // Handle error jika terjadi
       setIsLoading(false); // Matikan loading state
@@ -104,54 +104,9 @@ export default function Page() {
             <div className="mt-5">
               <div className="animate-[from-l-25_.35s_ease-in-out]">
                 <p>Silahkan daftar menggunakan Nomor HP anda.</p>
-                <div className="grid grid-cols-6 font-semibold w-full items-end mt-5">
-                  <select
-                    disabled
-                    className="select select-bordered border-1 border-solid border-[#E3E3E3] mr-2 col-span-2 mb-4 cursor-not-allowed"
-                  >
-                    <option disabled value="DEFAULT">
-                      Pick your choice
-                    </option>
-                    <option value="62">+62</option>
-                  </select>
-                  <div className="relative w-full col-span-4">
-                    <div className="flex justify-between items-end mb-1">
-                      <label className="block text-zinc-500 font-bold text-sm">
-                        No. HP
-                      </label>
-                    </div>
-                    <div className="flex items-center w-full border rounded-4 p-3 text-zinc-700 rounded-lg border-zinc-200">
-                      <input
-                        role="textbox-tel"
-                        className={`w-full bg-transparent text-base-content outline-none ${
-                          isPhoneNumberValid ? "" : "border-red-500"
-                        }`}
-                        placeholder="8xxxxxxxxx"
-                        type="tel"
-                        value={phoneNumber}
-                        onChange={(e) => {
-                          const inputValue = e.target.value;
-                          // Mencegah karakter 0 di awal nomor telepon
-                          if (inputValue.length === 1 && inputValue === "0") {
-                            setPhoneNumber(""); // Mengosongkan nomor telepon jika karakter 0 di awal
-                          } else {
-                            setPhoneNumber(inputValue); // Mengatur nilai nomor telepon
-                          }
-                          if (!validatePhoneNumber(inputValue)) {
-                            setIsPhoneNumberValid(false);
-                            setbuttonStatus(false);
-                          } else {
-                            setIsPhoneNumberValid(true);
-                          }
-                        }}
-                      />
-                    </div>
-                    <div className="text-[10px] font-medium h-4 text-zinc-400"></div>
-                  </div>
-                </div>
 
                 {/* just form hp */}
-                {/* <div className="relative mt-5">
+                <div className="relative mt-5">
                   <div className="flex justify-between items-end mb-1">
                     <label className="block text-zinc-500 font-bold text-sm">
                       Nomor HP
@@ -163,14 +118,23 @@ export default function Page() {
                       className={`w-full bg-transparent text-base-content outline-none ${
                         isPhoneNumberValid ? "" : "border-red-500" // Menampilkan border merah jika nomor HP tidak valid
                       }`}
-                      placeholder="+62xxxxxxxxxx"
+                      placeholder="08xxxxxxxxxx"
                       type="number"
                       value={phoneNumber}
-                      onChange={onChangePhoneNumber}
+                      onChange={(e) => {
+                        const inputValue = e.target.value;
+                        setPhoneNumber(inputValue); // Mengatur nilai nomor telepon
+                        if (!validatePhoneNumber(inputValue)) {
+                          setIsPhoneNumberValid(false);
+                          setbuttonStatus(false);
+                        } else {
+                          setIsPhoneNumberValid(true);
+                        }
+                      }}
                     />
                   </div>
                   <div className="text-[10px] font-medium h-4 text-zinc-400"></div>
-                </div> */}
+                </div>
                 {!isPhoneNumberValid && (
                   <div className="text-red-500 text-sm mt-1">
                     Nomor HP harus berisi minimal 10 digit angka.
