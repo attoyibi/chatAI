@@ -1,4 +1,4 @@
 // apiConfig.js
-const baseUrl = "http://localhost:8000";
+const baseUrl = process.env.NEXT_PUBLIC_CHAT_URL;
 
 export default baseUrl;

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { verifyOtp } from "../../../../utils/api/verifyOtp"; // Import fungsi sendOtp
 import { useRouter } from "next/navigation";
+import cookieCutter from 'cookie-cutter'
 
 function Page({ params }) {
   const router = useRouter();
@@ -57,7 +58,7 @@ function Page({ params }) {
       if (accessToken) {
         // console.log("terdapat accesstoken = " + accessToken);
         // Simpan access token sesuai preferensi Anda (contoh dengan local storage)
-        localStorage.setItem("accessToken", accessToken);
+        cookieCutter.set('accessToken',accessToken)
       }
 
       router.push("/chat");
