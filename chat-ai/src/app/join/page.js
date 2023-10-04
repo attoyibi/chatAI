@@ -37,7 +37,6 @@ export default function Page() {
       console.error(error); // Handle error jika terjadi
       setIsLoading(false); // Matikan loading state
     }
-    console.log("print");
   };
 
   return (

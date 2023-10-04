@@ -1,4 +1,17 @@
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+
+import Skeleton from "./skeleton"; // Impor komponen skeleton
+
 export default function Home() {
+  const router = useRouter();
+  const [isJoinClicked, setIsJoinClicked] = useState(false);
+  // Fungsi untuk mengarahkan ke halaman selanjutnya ("/signin")
+  const goToJoinInPage = () => {
+    setIsJoinClicked(true); // Mengubah state saat tombol diklik
+    router.push("/join");
+  };
   return (
     <div className="relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl shadow-primary/40">
       {/* <button class="btn btn-accent">Ghost</button> */}
@@ -25,12 +38,12 @@ export default function Home() {
               <strong className="text-[#FC814A]">Sofian</strong>
             </h1>
             <h4 className="text-zinc-400 text-md sm:text-xl mb-6">
-              Rasakan pengalaman berbincang seolah sedang chatting dengan Calon Legislatif
-              favoritmu
+              Rasakan pengalaman berbincang seolah sedang chatting dengan Calon
+              Legislatif favoritmu
             </h4>
             <a
               className="btn btn-warning text-warning-content text-center relative w-full rounded-full"
-              href="/join"
+              onClick={goToJoinInPage}
             >
               Chat Now
             </a>
@@ -43,6 +56,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* Tampilkan komponen skeleton jika tombol diklik */}
+      {isJoinClicked && <Skeleton />}
     </div>
   );
 }

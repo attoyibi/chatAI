@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { useChat } from 'ai/react';
+import { useChat } from "ai/react";
 import { useRouter } from "next/navigation";
 import { headers } from "../../../next.config";
-import cookieCutter from 'cookie-cutter'
+import cookieCutter from "cookie-cutter";
 
 export default function Page() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export default function Page() {
 
   useEffect(() => {
     // Check if accessToken is present in localStorage
-    const accessToken = cookieCutter.get('accessToken')
+    const accessToken = cookieCutter.get("accessToken");
 
     if (accessToken) {
       setAccessToken(accessToken);
@@ -28,13 +28,12 @@ export default function Page() {
     }
   }, []); // The empty dependency array ensures this effect runs once when the component mounts
 
-  
   const { messages, input, handleInputChange, handleSubmit } = useChat();
-  
+
   const onEnter = (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault();  // This will prevent adding a new line
-        handleSubmit(e);
+    if (e.key === "Enter") {
+      e.preventDefault(); // This will prevent adding a new line
+      handleSubmit(e);
     }
   };
 
@@ -43,60 +42,55 @@ export default function Page() {
       <div className="fixed w-full z-10">
         <div className="grid grid-cols-1 gap-4 max-w-[500px] bg-white shadow-md shadow-primary/15">
           <div className="flex items-center">
-            <Link href="/">
-              <button className="btn-ghost p-2 rounded-xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 19 17"
-                  width="24"
-                  height="24"
-                  className="text-black"
-                >
-                  <path d="M8.295 15.716A1 1 0 0 0 9.7 14.291L4.33 9h13.67a1 1 0 1 0 0-2H4.336L9.7 1.715A1 1 0 0 0 8.295.29L1.371 7.113a1.25 1.25 0 0 0 0 1.78l6.924 6.823Z"></path>
-                </svg>
-              </button>
-            </Link>
-            <div className="flex items-center gap-3">
-                <div className="avatar">
-                    <div className="w-20 rounded-full">
-                        <img src="https://warungpintar.co.id/static/1b6dc3179de91d3f1d89341539f174c1/042ad/wpg-sofian.webp" />
-                    </div>
+            <div className="px-6 py-2 flex items-center gap-3">
+              <div className="avatar">
+                <div className="w-20 rounded-full">
+                  <img src="https://warungpintar.co.id/static/1b6dc3179de91d3f1d89341539f174c1/042ad/wpg-sofian.webp" />
                 </div>
-                <div>
-                    <p className="font-bold text-lg">Sofian Hadiwijaya</p>
-                    <p>Aktifis</p>
-                </div>
+              </div>
+              <div>
+                <p className="font-bold text-lg">Sofian Hadiwijaya</p>
+                <p>Aktifis</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className="mt-20 mb-60">
         {messages.length > 0
-            ? messages.map((m, index) => (
-                <div 
-                key={m.id} 
-                className={`${index % 2 === 0 ? 'chat chat-end' : 'chat chat-start'}`}>
-                    <div className={`${index % 2 === 0 ? 'chat-bubble chat-bubble-primary' : 'chat-bubble chat-bubble-warning'}`}>
-                        {m.content}
-                        </div>
+          ? messages.map((m, index) => (
+              <div
+                key={m.id}
+                className={`${
+                  index % 2 === 0 ? "chat chat-end" : "chat chat-start"
+                }`}
+              >
+                <div
+                  className={`${
+                    index % 2 === 0
+                      ? "chat-bubble chat-bubble-primary"
+                      : "chat-bubble chat-bubble-warning"
+                  }`}
+                >
+                  {m.content}
                 </div>
+              </div>
             ))
-            : null}
+          : null}
       </div>
 
       {/* div bottom */}
       <div className="fixed w-full bottom-0">
         <div className="max-w-[500px] bg-white px-6 py-4 animate-[from-b-25_.35s_ease-in-out]">
           <div className="w-full items-center justify-between">
-              <input
-                type="text"
-                placeholder="Write Something"
-                className="input input-bordered w-full"
-                value={input}
-                onChange={handleInputChange}
-                onKeyDownCapture={onEnter}
-              />
+            <input
+              type="text"
+              placeholder="Write Something"
+              className="input input-bordered w-full"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDownCapture={onEnter}
+            />
           </div>
         </div>
       </div>
