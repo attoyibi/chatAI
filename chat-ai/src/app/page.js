@@ -13,7 +13,7 @@ export default function Home() {
     setIsJoinClicked(true); // Mengubah state saat tombol diklik
     setTimeout(() => {
       router.push("/join");
-    }, 500);
+    }, 200);
   };
   return (
     <>
