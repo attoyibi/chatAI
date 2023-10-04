@@ -39,10 +39,10 @@ export default function Page() {
 
   return (
     <div className="bg-white relative max-w-[500px] mx-auto w-full flex flex-col min-h-screen shadow-xl shadow-primary/40">
-      <div className="fixed w-full z-10">
+      <div className="fixed w-full z-10 mb-10">
         <div className="grid grid-cols-1 gap-4 max-w-[500px] bg-white shadow-md shadow-primary/15">
           <div className="flex items-center">
-            <div className="px-6 py-2 flex items-center gap-3">
+            <div className="px-6  flex items-center gap-3">
               <div className="avatar">
                 <div className="w-20 rounded-full">
                   <img src="https://warungpintar.co.id/static/1b6dc3179de91d3f1d89341539f174c1/042ad/wpg-sofian.webp" />
