@@ -43,6 +43,7 @@ export default function Home() {
             <div className="fixed w-full bottom-0">
               <div className="max-w-[500px] bg-white px-6 py-4 animate-[from-b-25_.35s_ease-in-out]">
                 <h1 className="font-bold text-lg sm:text-2xl mb-3">
+                  Development
                   Chat denganku setiap saat dengan{" "}
                   <strong className="text-[#FC814A]">Sofian</strong>
                 </h1>
